@@ -1,8 +1,6 @@
 """
 RAG Pipeline for Pharmaceutical Document Retrieval
 ===================================================
-Projects 5–8: open-source LLM (Mistral) + page-level classifier
-              + metadata-aware retrieval + Gradio frontend hooks.
 
 Stack:
   * Loader      : PyMuPDF (page-level Documents) with Tesseract OCR fallback
@@ -153,7 +151,7 @@ def load_pdf(pdf_path: str, progress_callback=None) -> List[Document]:
 
 
 # -------------------------------------------------------------------
-# 3b. PAGE CLASSIFIER (Project 7) — adds doc_type + doc_id metadata
+# 3b. PAGE CLASSIFIER  — adds doc_type + doc_id metadata
 # -------------------------------------------------------------------
 _CLASSIFIER_PROMPT = """You are a pharmaceutical document classifier.
 Classify the page below into EXACTLY ONE of these document types:
@@ -327,7 +325,7 @@ def build_reranker():
 
 # -------------------------------------------------------------------
 # 8. ASSEMBLE QUERY ENGINE  (citation-required prompt + optional
-#    metadata filter for Project 7 routing)
+#    metadata filter for routing)
 # -------------------------------------------------------------------
 _QA_PROMPT_TMPL = (
     "You are a precise pharmaceutical document assistant. Use ONLY the "
